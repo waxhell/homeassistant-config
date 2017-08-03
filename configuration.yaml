@@ -169,45 +169,7 @@ tts:
   platform: google
 
 # Media Player
-media_player:
-  - platform: pioneer
-    host: 192.168.150.13
-
-  - platform: cast
-
-  - platform: universal
-    name: Living Room TV
-    children:
-       - media_player.living_room_chromecast
-    commands:
-       turn_on:
-          service: media_player.turn_on
-          data:
-             entity_id: media_player.pioneer_avr
-       turn_off:
-          service: media_player.turn_off
-          data:
-             entity_id: media_player.pioneer_avr
-       volume_mute:
-          service: media_player.volume_mute
-          data:
-             entity_id: media_player.pioneer_avr
-       volume_set:
-          service: media_player.volume_set
-          data_template:
-             entity_id: media_player.pioneer_avr
-             volume_level: '{{ volume_level }}'
-       select_source:
-          service: media_player.select_source
-          data_template:
-             entity_id: media_player.pioneer_avr
-             source: '{{ source }}'
-    attributes:
-           state: media_player.pioneer_avr
-           is_volume_muted: media_player.pioneer_avr|is_volume_muted
-           volume_level: media_player.pioneer_avr|volume_level
-           source: media_player.pioneer_avr|source
-           source_list: media_player.pioneer_avr|source_list
+media_player: !include media_players.yaml
 
 # Z-Wave
 zwave:
