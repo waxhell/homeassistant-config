@@ -22,9 +22,9 @@ My Example [Home Assistant](https://home-assistant.io/) Config
 
 I have the Living Room setup wrapped together via the media_player.custom component. This combines the Pioneer receiver and the Chromecast together into a single component (Living Room TV).
 
-* Monster Cable HDP 850G Green Power Surge Protector - Automatically controls Switched outlets based on Master Controlled Outlet status
+* Monster Cable HDP 850G GreenPower Surge Protector - Automatically controls Switched outlets based on Master Controlled Outlet status
 * Pioneer SC-1522k AVR - Controlled via the media_player.pioneer component & Connected to Master Control Outlet on Surge Protector
-* LG Non-Smart TV - Plugged into Switched Outlet; Automatically turns on when AVR is powered up and turns off when the AVR is powered down.
+* LG Non-Smart TV - Plugged into Surge Protector Switched Outlet; Automatically turns on when AVR is powered up and turns off when the AVR is powered down.
 * Chromecast (2nd Generation) - Living Room Chromecast
 
 ### Automations:
@@ -36,10 +36,10 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 * Morning Lights Off - Turn off all lighting / devices at 10:30AM
 * Morning Guest Bedroom Lights Off - Turns off all Guest Bedroom lighting at 10:30AM (seperated for guest convenience)
 
-### Energy Automation:
+#### Energy Automation:
 * Living Room TV Auto Off - Turn off Living Room Entertainment Center when idle for >30 mins (Chromecast Idle & Pioneer AVR On).
 
-### Minimote Integration Automation
+#### Minimote Integration Automation
 * Setup Minimote to control Guest Bedroom Lighting
 
 ### Z-Wave Devices:
