@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Python cache
+__pycache__
+*.pyc
+
+# Open Z-Wave
+zwcfg*
+zwscene.xml
+
+# Other
+*.uuid
+*.conf
+*.db*
+*.db-journal
+*.log
+*.noload
+*.txt
+*.sqlite
+*.xml
+*.backup
+*.bak
+emulated_hue_ids.json
+home-assistant.*
+known_devices.yaml
+secrets.yaml
+deps
+tts
+

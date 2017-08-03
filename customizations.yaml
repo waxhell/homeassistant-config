@@ -1,0 +1,78 @@
+# Emulated Hue Includes
+script.thermostat_heat:
+  emulated_hue: true
+  hidden: true
+script.thermostat_cool:
+  emulated_hue: true
+  hidden: true
+media_player.living_room_tv:
+  emulated_hue: true
+
+# Emulated Hue Excludes
+group.all_automations:
+  emulated_hue: false
+group.all_locks:
+  emulated_hue: false
+group.all_scripts:
+  emulated_hue: false
+group.weather_overview:
+  emulated_hue: false
+
+# Rename Elements
+sensor.pws_temp_f:
+  friendly_name: Outdoor Temperature
+#Hide UI Elements
+
+#Locks
+sensor.front_door_alarm_level:
+  hidden: true
+sensor.front_door_alarm_type:
+  hidden: true
+sensor.front_gate_alarm_level:
+  hidden: true
+sensor.front_gate_alarm_type:
+  hidden: true
+sensor.back_door_alarm_level:
+  hidden: true
+sensor.back_door_alarm_type:
+  hidden: true
+sensor.garage_door_alarm_level:
+  hidden: true
+sensor.garage_door_alarm_type:
+  hidden: true
+#Cooper Outlets - Guest Bedroom
+sensor.guest_bedroom_bedside_alarm_type:
+  hidden: true
+sensor.guest_bedroom_bedside_alarm_level:
+  hidden: true
+sensor.guest_bedroom_corner_alarm_type:
+  hidden: true
+sensor.guest_bedroom_corner_alarm_level:
+  hidden: true
+#Cooper Outlets - Master Bedroom
+sensor.master_bedroom_balcony_alarm_level:
+  hidden: true
+sensor.master_bedroom_balcony_alarm_type:
+  hidden: true
+sensor.master_bedroom_corner_alarm_level:
+  hidden: true
+sensor.master_bedroom_corner_alarm_type:
+  hidden: true
+sensor.master_bedroom_left_bedside_alarm_level:
+  hidden: true
+sensor.master_bedroom_left_bedside_alarm_type:
+  hidden: true
+sensor.master_bedroom_right_bedside_alarm_level:
+  hidden: true
+sensor.master_bedroom_right_bedside_alarm_type:
+  hidden: true
+sensor.master_bedroom_snail_alarm_level:
+  hidden: true
+sensor.master_bedroom_snail_alarm_type:
+  hidden: true
+
+#Smoke Detectors
+sensor.living_room_smoke_detector_alarm_level:
+  hidden: true
+sensor.living_room_smoke_detector_alarm_type:
+  hidden: true

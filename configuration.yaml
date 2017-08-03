@@ -1,0 +1,231 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitudesecret
+  longitude: !secret longitudesecret
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevationsecret
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+  # UI Customizations
+  customize: !include customizations.yaml
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+logger:
+  default: warn
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor:
+  - platform: wunderground
+    api_key: !secret wundergroundkey
+    monitored_conditions:
+      - weather_1d
+      - temp_high_1d_f
+      - temp_f
+      - temp_low_1d_f
+      - precip_1d
+      - precip_1d_in
+      - wind_mph
+      - wind_1d_mph
+      - alerts
+
+  - platform: plex
+    host: 192.168.150.12
+    username: !secret plexuser
+    password: !secret plexpw
+
+  - platform: ohmconnect
+    id: !secret ohmconnectkey
+
+  - platform: template
+    sensors:
+      living_room_tv_idle:
+        friendly_name: 'Living Room TV is Idle'
+        value_template: >-
+          {% if (is_state_attr('media_player.pioneer_avr', 'source', 'Chromecast') and is_state('media_player.living_room_chromecast', 'off')) %}
+            on
+          {% else %}
+            off
+          {% endif %}
+        entity_id:
+          - media_player.pioneer_avr
+          - media_player.living_room_chromecast
+
+      front_door_battery:
+        friendly_name: 'Front Door Battery Level'
+        value_template: >-
+          {%- if states.zwave.front_door -%}
+            {{ states.zwave.front_door.attributes.battery_level }}
+          {%- else -%}
+            n/a
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.front_door
+
+      front_gate_battery:
+        friendly_name: 'Front Gate Battery Level'
+        value_template: >-
+          {%- if states.zwave.front_gate -%}
+            {{ states.zwave.front_gate.attributes.battery_level }}
+          {%- else -%}
+            n/a
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.front_gate
+
+      back_door_battery:
+        friendly_name: 'Back Door Battery Level'
+        value_template: >-
+          {%- if states.zwave.back_door -%}
+            {{ states.zwave.back_door.attributes.battery_level }}
+          {%- else -%}
+            n/a
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.back_door
+
+      garage_door_battery:
+        friendly_name: 'Garage Door Battery Level'
+        value_template: >-
+          {%- if states.zwave.garage_door -%}
+            {{ states.zwave.garage_door.attributes.battery_level }}
+          {%- else -%}
+            n/a
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.garage_door
+
+      living_room_smoke_battery:
+        friendly_name: 'Living Room Smoke Detector Battery Level'
+        value_template: >-
+          {%- if states.zwave.living_room_smoke_detector -%}
+            {{ states.zwave.living_room_smoke_detector.attributes.battery_level }}
+          {%- else -%}
+            n/a
+          {%- endif -%}
+        unit_of_measurement: '%'
+        entity_id: zwave.living_room_smoke_detector
+
+      living_room_smoke:
+        friendly_name: 'Living Room Smoke Detector Status'
+        value_template: >-
+          {%- if is_state("sensor.living_room_smoke_detector_alarm_level", "0") %}
+            Idle
+          {%- else %}
+            {%- if is_state("sensor.living_room_smoke_detector_alarm_type", "1") %}
+              Fire
+            {%- elif is_state("sensor.living_room_smoke_detector_alarm_type", "2") %}
+              C02
+            {%- elif is_state("sensor.living_room_smoke_detector_alarm_type", "12") %}
+              Testing
+            {%- elif is_state("sensor.living_room_smoke_detector_alarm_type", "13") %}
+              Idle
+            {% else %}
+              Unknown
+            {%- endif %}
+          {%- endif %}
+        entity_id: zwave.living_room_smoke_detector
+
+# Text to speech
+tts:
+  platform: google
+
+# Media Player
+media_player:
+  - platform: pioneer
+    host: 192.168.150.13
+
+  - platform: cast
+
+  - platform: universal
+    name: Living Room TV
+    children:
+       - media_player.living_room_chromecast
+    commands:
+       turn_on:
+          service: media_player.turn_on
+          data:
+             entity_id: media_player.pioneer_avr
+       turn_off:
+          service: media_player.turn_off
+          data:
+             entity_id: media_player.pioneer_avr
+       volume_mute:
+          service: media_player.volume_mute
+          data:
+             entity_id: media_player.pioneer_avr
+       volume_set:
+          service: media_player.volume_set
+          data_template:
+             entity_id: media_player.pioneer_avr
+             volume_level: '{{ volume_level }}'
+       select_source:
+          service: media_player.select_source
+          data_template:
+             entity_id: media_player.pioneer_avr
+             source: '{{ source }}'
+    attributes:
+           state: media_player.pioneer_avr
+           is_volume_muted: media_player.pioneer_avr|is_volume_muted
+           volume_level: media_player.pioneer_avr|volume_level
+           source: media_player.pioneer_avr|source
+           source_list: media_player.pioneer_avr|source_list
+
+# Z-Wave
+zwave:
+  usb_path: /dev/ttyACM0
+  new_entity_ids: true
+  network_key: !secret zwavenetworkkey
+
+# Amazon Echo Emulated Hue
+emulated_hue:
+  listen_port: 80
+  off_maps_to_on_domains:
+  exposed_domains:
+    - switch
+    - light
+    - group
+    - input_boolean
+
+script: !include scripts.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+scene: !include scenes.yaml

@@ -1,0 +1,165 @@
+- id: evening_outside_lights_on
+  alias: Evening Outside Lights On
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 1.5
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.outside
+
+- id: midnight_balcony_lights_off
+  alias: Midnight Balcony Lights Off
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    service: light.turn_off
+    entity_id: light.balcony_light
+
+- id: sunrise_outside_lights_off
+  alias: Sunrise Outside Lights Off
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.outside
+
+- id: livingroom_tv_auto_off
+  alias: Living Room TV Auto Off
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_tv_idle
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 30
+  action:
+    service: homeassistant.turn_off
+    entity_id: media_player.living_room_tv
+
+- id: morning_lights_off
+  alias: Morning Lights Off
+  trigger:
+    platform: time
+    at: '10:00:00'
+  action:
+  - service: homeassistant.turn_off
+    entity_id: group.living_room
+  - service: homeassistant.turn_off
+    entity_id: group.dining_room
+  - service: homeassistant.turn_off
+    entity_id: group.kitchen
+  - service: homeassistant.turn_off  
+    entity_id: group.upstairs
+  - service: homeassistant.turn_off
+    entity_id: group.garage
+
+- id: morning_guest_lights_off
+  alias: Morning Guest Bedroom Lights Off
+  trigger:
+    platform: time
+    at: '10:30:00'
+  action:
+  - service: homeassistant.turn_off
+    entity_id: group.guest_bedroom
+
+# Aeon Labs Minimote Stuff
+
+- alias: Minimote Button 1 Pressed
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 1
+  action:
+    service: light.toggle
+    entity_id: light.guest_bedroom_overhead_light
+
+- alias: Minimote Button 1 Held
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 2
+  action:
+    service: light.toggle
+    entity_id: light.guest_bedroom_overhead_light
+
+- alias: Minimote Button 2 Pressed
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 3
+  action:
+    service: switch.toggle
+    entity_id: switch.guest_bedroom_corner_light
+
+- alias: Minimote Button 2 Held
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 4
+  action:
+    service: switch.toggle
+    entity_id: switch.guest_bedroom_corner_light
+
+- alias: Minimote Button 3 Pressed
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 5
+  action:
+    service: switch.toggle
+    entity_id: switch.guest_bedroom_bedside_light
+
+- alias: Minimote Button 3 Held
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 6
+  action:
+    service: switch.toggle
+    entity_id: switch.guest_bedroom_bedside_light
+
+- alias: Minimote Button 4 Pressed
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 7
+  action:
+    service: homeassistant.toggle
+    entity_id: group.guest_bedroom
+
+- alias: Minimote Button 4 Held
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeon_labs_minimote_1
+      scene_id: 8
+  action:
+    service: homeassistant.toggle
+    entity_id: automation.morning_guest_lights_off
