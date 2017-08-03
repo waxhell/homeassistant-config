@@ -6,6 +6,7 @@ weather_overview:
   - sensor.pws_temp_f
   - sensor.pws_temp_high_1d_f
   - sensor.pws_temp_low_1d_f
+  - sensor.pws_relative_humidity
   - sensor.pws_precip_1d
   - sensor.pws_precip_1d_in
   - sensor.pws_wind_mph

@@ -1,12 +1,12 @@
-platform: pioneer
+- platform: pioneer
   host: 192.168.150.13
 
-platform: cast
+- platform: cast
 
-platform: universal
+- platform: universal
   name: Living Room TV
   children:
-    - media_player.living_room_chromecast
+   - media_player.living_room_chromecast
   commands:
     turn_on:
       service: media_player.turn_on
