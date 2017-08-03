@@ -15,7 +15,7 @@ My Example [Home Assistant](https://home-assistant.io/) Config
 ### Amazon Echo Dot:
 
 * Integrated via the emulated_hue component (i.e Alexa, Turn on Dining Room Ceiling Fan)
-* Also running [Pizzaface/Alexa-Chromecast-Skill2.0](https://github.com/Pizzaface/Alexa-Chromecast-Skill-2.0)
+* Also running [Pizzaface/Alexa-Chromecast-Skill2.0](https://github.com/Pizzaface/Alexa-Chromecast-Skill-2.0) (i.e. Alexa, Tell Chromecast to play [Youtube Video])
 * Additional [scripting](https://community.home-assistant.io/t/simple-script-to-enable-amazon-echo-alexa-to-set-the-temperature-on-a-climate-thermostat-device-via-the-emulated-hue-component/7924/10) to handle thermostat with emulated_hue (i.e. Alexa, Set AC to 68)
 
 ### Living Room Entertainment Center Setup:
@@ -27,9 +27,22 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 * LG Non-Smart TV - Plugged into Switched Outlet; Automatically turns on when AVR is powered up and turns off when the AVR is powered down.
 * Chromecast (2nd Generation) - Living Room Chromecast
 
-Since the Chromecast is always on, the Pioneer does not automatically power-down. Automation has been added to automatically power down the Receiver (and TV via Monster Cable Controlled Outlet) when idle for >30 minutes (Pioneer_AVR on and Chromecast idle).
+### Automations:
 
-### Z-Wave:
+#### Lighting Automation
+* Evening Outside Lights On - Turn on all outdoor lights when sun elevation is below 1.5 
+* Midnight Balcony Lights Off - Turn off outdoor balcony lights at midnight 
+* Sunrise Outside Lights Off - Turn off all outdoor lights when sun rises 
+* Morning Lights Off - Turn off all lighting / devices at 10:30AM
+* Morning Guest Bedroom Lights Off - Turns off all Guest Bedroom lighting at 10:30AM (seperated for guest convenience)
+
+### Energy Automation:
+* Living Room TV Auto Off - Turn off Living Room Entertainment Center when idle for >30 mins (Chromecast Idle & Pioneer AVR On).
+
+### Minimote Integration Automation
+* Setup Minimote to control Guest Bedroom Lighting
+
+### Z-Wave Devices:
 
 * Monster IWD 600S (Leviton RZI06-1LX) - 2 Wire Dimmers - 9600 bps - Instant Status Capable
 * Monster IWS 1000S (Leviton RZS15-1LX)) - Relay Switch - 9600 bps - Instant Status Capable
