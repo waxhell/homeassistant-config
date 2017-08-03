@@ -39,8 +39,9 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 #### Energy Automation:
 * Living Room TV Auto Off - Turn off Living Room Entertainment Center when idle for >30 mins (Chromecast Idle & Pioneer AVR On).
 
-#### Minimote Integration Automation
-* Setup Minimote to control Guest Bedroom Lighting
+#### Scene Controller Integration Automation
+* Setup Aeotec Minimote to control Guest Bedroom Lighting
+* Setup Leviton Scene Controller to control Master Bedroom Lighting
 
 ### Z-Wave Devices:
 
