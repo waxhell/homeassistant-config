@@ -6,6 +6,7 @@
     - temp_high_1d_f
     - temp_f
     - temp_low_1d_f
+    - relative_humidity
     - precip_1d
     - precip_1d_in
     - wind_mph
