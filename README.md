@@ -57,3 +57,4 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 * Trane TZEMT400AB32MAA - Thermostat - 40000 bps
 * First Alert ZCOMBO-G - Smoke & CO Detector - 40000 bps
 * Aeotec DSA03202 - Minimote - 40000 bps
+* Leviton RZCS4-1L - Scene Controller - 9600 bps
