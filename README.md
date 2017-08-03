@@ -1,15 +1,33 @@
 # homeassistant-config
 
-My Example Home Assistant Config
+My Example [Home Assistant](https://home-assistant.io/) Config
 
 ## Devices: 
 
-### Living Room Setup:
+### Base Setup:
+
+* Home Assistant Version 0.50.1
+* Virtualenv Install
+* Running on Pogoplug_E02
+* Arch Linux ARM (ARMv5te)
+* Sigma Designs UZB Z-Wave USB Adapter
+
+### Amazon Echo Dot:
+
+* Integrated via the emulated_hue component (i.e Alexa, Turn on Dining Room Ceiling Fan)
+* Also running [Pizzaface/Alexa-Chromecast-Skill2.0](https://github.com/Pizzaface/Alexa-Chromecast-Skill-2.0)
+
+### Living Room Entertainment Center Setup:
+
+I have the Living Room setup wrapped together via the media_player.custom component. This combines the Pioneer receiver and the 
+Chromecast together into a single component (with the Pioneer over-riding the volume controls).
 
 * Pioneer SC-1522k AVR - Controlled via the media_player.pioneer component
-* Monster Cable Green Power Surge Protector - Receiver is plugged into Control Outlet
-* LG Non-Smart TV - Plugged into Controlled Outlet; Automatically turns on when AVR is powered up
+* Monster Cable Green Power Surge Protector - Receiver is plugged into Master Control Outlet
+* LG Non-Smart TV - Plugged into Controlled Outlet; Automatically turns on when AVR is powered up and turns off when the AVR is powered down.
 * Chromecast (2nd Generation) - Living Room Chromecast
+
+Since the Chromecast is always on, the Pioneer does not automatically power-down. Automation has been added to automatically power down the Receiver (and TV by association) when idle for >30 minutes.
 
 ### Z-Wave:
 
