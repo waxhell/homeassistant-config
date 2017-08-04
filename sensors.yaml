@@ -39,6 +39,16 @@
         - media_player.pioneer_avr
         - media_player.living_room_chromecast
 
+    living_room_tv_volume:
+      friendly_name: "Living Room TV Volume"
+      unit_of_measurment: "dB"
+        value_template: >-
+          {% if is_state('media_player.living_room_tv', 'on') %}
+            {% set n = states.media_player.living_room_tv.attributes.volume_level|float %}
+            {{ '%.1f'%( (-1.0+n*1000)|round(0.0) ) }}
+          {% else %}
+            "-80.0"
+          {% endif %}
     # Battery Status
     front_door_battery:
       friendly_name: 'Front Door Battery Level'
