@@ -45,8 +45,8 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 
 ### Z-Wave Devices:
 
-* Monster IWD 600S (Leviton RZI06-1LX) - 2 Wire Dimmers - 9600 bps - Instant Status Capable
-* Monster IWS 1000S (Leviton RZS15-1LX)) - Relay Switch - 9600 bps - Instant Status Capable
+* Monster IWD 600S (Leviton RZI06) - 2 Wire Dimmers - 9600 bps - Instant Status Capable
+* Monster IWS 1000S (Leviton RZS15) - Relay Switch - 9600 bps - Instant Status Capable
 * Leviton VRS15-1LZ - Relay Switch - 40000 bps - Instant Status Capable
 * GE/Jasco 45606 - 2 Wire Dimmers - 40000 bps
 * GE/Jasco 45613 - 3 Way Dimmer Switches - 40000 bps
