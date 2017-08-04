@@ -167,6 +167,7 @@
 # Leviton Scene Controller Integration
 
 - alias: Leviton Scene Button 1
+  hide_entity: True
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -183,6 +184,7 @@
       entity_id: automation.leviton_scene_button_1
 
 - alias: Leviton Scene Button 2
+  hide_entity: True
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -199,6 +201,7 @@
       entity_id: automation.leviton_scene_button_2
 
 - alias: Leviton Scene Button 3
+  hide_entity: True
   trigger:
     platform: event
     event_type: zwave.scene_activated
@@ -215,6 +218,7 @@
       entity_id: automation.leviton_scene_button_3
 
 - alias: Leviton Scene Button 4
+  hide_entity: True
   trigger:
     platform: event
     event_type: zwave.scene_activated
