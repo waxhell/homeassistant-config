@@ -32,6 +32,7 @@ kitchen:
   name: Kitchen
   entities:
   - switch.kitchen_overhead_light
+  - light.pantry_light
   view: false
 
 upstairs:
@@ -69,6 +70,7 @@ guest_bathroom:
   name: Guest Bathroom
   entities:
   - light.guest_bathroom_light
+  - switch.guest_bathroom_exhaust_fan
   view: false
 
 garage:
