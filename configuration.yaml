@@ -62,6 +62,10 @@ tts:
 # Media Player Components
 media_player: !include media_players.yaml
 
+# Ecobee4 Thermostat
+ecobee:
+  api_key: !secret ecobeeapikey
+
 # Z-Wave
 zwave:
   usb_path: /dev/ttyACM0

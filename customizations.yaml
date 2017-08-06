@@ -21,6 +21,7 @@ group.weather_overview:
 # Rename Elements
 sensor.pws_temp_f:
   friendly_name: Outdoor Temperature
+
 #Hide UI Elements
 
 #Locks

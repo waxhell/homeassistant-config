@@ -1,25 +1,25 @@
-thermostat_heat:
-  alias: "Heater"
-  sequence:
-    - service: climate.set_operation_mode
-      data: 
-        entity_id: climate.thermostat_heater_setpoint
-        operation_mode: Heat
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.thermostat_heater_setpoint
-        temperature: "{{ requested_level }}"
+#thermostat_heat:
+#  alias: "Heater"
+#  sequence:
+#    - service: climate.set_operation_mode
+#      data: 
+#        entity_id: climate.thermostat_heater_setpoint
+#        operation_mode: Heat
+#    - service: climate.set_temperature
+#      data_template:
+#        entity_id: climate.thermostat_heater_setpoint
+#        temperature: "{{ requested_level }}"
 
-thermostat_cool:
-  alias: "AC"
-  sequence:
-    - service: climate.set_operation_mode
-      data: 
-        entity_id: climate.thermostat_ac_setpoint
-        operation_mode: Cool
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.thermostat_ac_setpoint
-        temperature: "{{ requested_level }}"
+#thermostat_cool:
+#  alias: "AC"
+#  sequence:
+#    - service: climate.set_operation_mode
+#      data: 
+#        entity_id: climate.thermostat_ac_setpoint
+#        operation_mode: Cool
+#    - service: climate.set_temperature
+#      data_template:
+#        entity_id: climate.thermostat_ac_setpoint
+#        temperature: "{{ requested_level }}"
 
 

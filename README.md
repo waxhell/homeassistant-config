@@ -16,7 +16,6 @@ My Example [Home Assistant](https://home-assistant.io/) Config
 
 * Integrated via the emulated_hue component (i.e Alexa, Turn on Dining Room Ceiling Fan)
 * Also running [Pizzaface/Alexa-Chromecast-Skill2.0](https://github.com/Pizzaface/Alexa-Chromecast-Skill-2.0) (i.e. Alexa, Tell Chromecast to play [Youtube Video])
-* Additional [scripting](https://community.home-assistant.io/t/simple-script-to-enable-amazon-echo-alexa-to-set-the-temperature-on-a-climate-thermostat-device-via-the-emulated-hue-component/7924/10) to handle thermostat with emulated_hue (i.e. Alexa, Set AC to 68)
 
 ### Living Room Entertainment Center Setup:
 
@@ -43,6 +42,10 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 * Setup Aeotec Minimote to control Guest Bedroom Lighting
 * Setup Leviton Scene Controller to control Master Bedroom Lighting
 
+### Climate Devices:
+* Ecobee4 Thermostat
+* 1x Ecobee Room Sensor
+
 ### Z-Wave Devices:
 
 * Monster IWD 600S (Leviton RZI06) - 2 Wire Dimmers - 9600 bps - Instant Status Capable
@@ -55,7 +58,6 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 * Cooper RF9505-TR - Receptacles - 40000 bps - Instant Status Capable
 * Schlage FE599 - Door Locks - 40000 bps
 * Schlage BE369 - Deadbolt Locks - 40000 bps
-* Trane TZEMT400AB32MAA - Thermostat - 40000 bps
 * First Alert ZCOMBO-G - Smoke & CO Detector - 40000 bps
 * Aeotec DSA03202 - Minimote - 40000 bps
 * Leviton RZCS4-1L - Scene Controller - 9600 bps
