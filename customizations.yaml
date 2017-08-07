@@ -1,10 +1,10 @@
 # Emulated Hue Includes
-script.thermostat_heat:
-  emulated_hue: true
-  hidden: true
-script.thermostat_cool:
-  emulated_hue: true
-  hidden: true
+#script.thermostat_heat:
+#  emulated_hue: true
+#  hidden: true
+#script.thermostat_cool:
+#  emulated_hue: true
+#  hidden: true
 media_player.living_room_tv:
   emulated_hue: true
 
@@ -18,9 +18,16 @@ group.all_scripts:
 group.weather_overview:
   emulated_hue: false
 
-# Rename Elements
+# Customize Elements
 sensor.pws_temp_f:
-  friendly_name: Outdoor Temperature
+  friendly_name: 'Outdoor Temperature'
+group.thermostat:
+  icon: mdi:fan
+climate.thermostat:
+  icon: mdi:fan
+sensor.thermostat_humidity:
+  friendly_name: 'House Humidity'
+  icon: mdi:water-percent
 
 #Hide UI Elements
 

@@ -2,9 +2,6 @@ weather_overview:
   name: Weather Overview
   entities:
   - sensor.pws_weather_1d
-  - sensor.thermostat_temperature
-  - sensor.thermostat_humidity
-  - sensor.office_temperature
   - sensor.pws_temp_f
 #  - sensor.pws_temp_high_1d_f
 #  - sensor.pws_temp_low_1d_f
@@ -15,6 +12,20 @@ weather_overview:
   - sensor.pws_wind_1d_mph
   - sensor.pws_alerts
   view: false
+
+thermostat:
+  name: Thermostat
+  entities:
+  - climate.thermostat
+  - sensor.thermostat_status
+  - sensor.thermostat_temperature
+  - sensor.living_room_temperature
+  - sensor.thermostat_humidity
+  - input_boolean.thermostat_away
+  - input_select.thermostat_operation
+  - sensor.pws_temp_f
+  - sensor.pws_relative_humidity
+
 
 living_room:
   name: Living Room

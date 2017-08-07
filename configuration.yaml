@@ -52,9 +52,6 @@ logbook:
 # Track the sun
 sun:
 
-# Sensor Components
-sensor: !include sensors.yaml
-
 # Text to speech
 tts:
   platform: google
@@ -82,6 +79,11 @@ emulated_hue:
     - group
     - input_boolean
 
+# Sensor Components
+sensor: !include sensors.yaml
+
+input_boolean: !include input_booleans.yaml
+input_select: !include input_selects.yaml
 script: !include scripts.yaml
 group: !include groups.yaml
 automation: !include automations.yaml

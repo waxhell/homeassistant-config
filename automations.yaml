@@ -233,3 +233,80 @@
     - delay: '00:00:02'                                  # Wait 2 seconds
     - service: homeassistant.turn_on                     # Re-enable automation
       entity_id: automation.leviton_scene_button_4
+
+
+# Thermostat Automations
+
+- alias: Thermostat - Away Input
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.thermostat_away
+  action:
+    service_template: >
+      {% if is_state('sensor.thermostat_away', 'off') %}
+        homeassistant.turn_off
+      {% elif is_state('sensor.thermostat_away', 'on') %}
+        homeassistant.turn_on
+      {% else %}
+      {% endif %}
+    entity_id: input_boolean.thermostat_away
+
+- alias: Thermostat - Input Away
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: input_boolean.thermostat_away
+  action:
+    - service: climate.set_away_mode
+      entity_id: climate.thermostat
+      data_template:
+        away_mode: >
+          {% if is_state('input_boolean.thermostat_away', 'off') %}
+            off
+          {% elif is_state('input_boolean.thermostat_away', 'on') %}
+            on
+          {% else %}
+          {% endif %}
+
+- alias: Thermostat - Input Select
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.thermostat_operation
+  action:
+    service: input_select.select_option
+    entity_id: input_select.thermostat_operation
+    data_template:
+      option: >
+        {% if is_state('sensor.thermostat_operation', 'auto') %}
+          Auto
+        {% elif is_state('sensor.thermostat_operation', 'cool') %}
+          Cool
+        {% elif is_state('sensor.thermostat_operation', 'heat') %}
+          Heat
+        {% elif is_state('sensor.thermostat_operation', 'off') %}
+          Off
+        {% else %}
+        {% endif %}
+
+- alias: Thermostat - Select Input
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: input_select.thermostat_operation
+  action:
+    service: climate.set_operation_mode
+    entity_id: climate.thermostat
+    data_template:
+      operation_mode: >
+        {% if is_state('input_select.thermostat_operation', 'Auto') %}
+          auto
+        {% elif is_state('input_select.thermostat_operation', 'Cool') %}
+          cool
+        {% elif is_state('input_select.thermostat_operation', 'Heat') %}
+          heat
+        {% elif is_state('input_select.thermostat_operation', 'Off') %}
+          off
+        {% else %}
+        {% endif %}

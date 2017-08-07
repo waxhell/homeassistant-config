@@ -1,0 +1,4 @@
+thermostat_away:
+  name: Thermostat Away Mode
+  initial: off
+  icon: mdi:run

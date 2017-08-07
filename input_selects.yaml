@@ -1,0 +1,9 @@
+thermostat_operation:
+  name: 'HVAC Operation Mode'
+  options:
+   - 'Auto'
+   - 'Cool'
+   - 'Heat'
+   - 'Off'
+  initial: 'Auto'
+  icon: mdi:chemical-weapon

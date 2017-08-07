@@ -50,6 +50,26 @@
           -80.5
         {% endif %}
 
+    thermostat_away:
+      friendly_name: 'Thermostat Away Mode'
+      value_template: >-
+        {{ states.climate.thermostat.attributes.away_mode }}
+
+    thermostat_operation:
+      friendly_name: 'Thermostat Operation Mode'
+      value_template: >-
+        {{ states.climate.thermostat.attributes.operation_mode }}
+
+    thermostat_status:
+      friendly_name: 'HVAC Status'
+      value_template: >-
+        {{ states.climate.thermostat.attributes.operation }} / Fan {{ states.climate.thermostat.attributes.fan }}
+
+    thermostat_fan:
+      friendly_name: 'HVAC Fan'
+      value_template: >-
+        {{ states.climate.thermostat.attributes.fan }}
+
     # Battery Status
     front_door_battery:
       friendly_name: 'Front Door Battery Level'
