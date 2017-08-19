@@ -20,11 +20,15 @@ thermostat:
   - sensor.thermostat_status
   - sensor.thermostat_temperature
   - sensor.living_room_temperature
+  - sensor.office_temperature
+  - sensor.guest_bedroom_temperature
+  - sensor.master_bedroom_temperature
   - sensor.thermostat_humidity
   - input_boolean.thermostat_away
   - input_select.thermostat_operation
   - sensor.pws_temp_f
   - sensor.pws_relative_humidity
+  - binary_sensor.thermostat_occupancy
 
 
 living_room:
@@ -32,6 +36,9 @@ living_room:
   entities:
   - light.living_room_overhead_light
   - switch.living_room_corner_light
+  - switch.living_room_ceiling_fan
+  - sensor.living_room_temperature
+  - binary_sensor.living_room_occupancy
   view: false
 
 dining_room:
@@ -61,6 +68,8 @@ upstairs:
   - switch.master_bedroom_balcony_outlet
   - light.master_bathroom_shower_light
   - light.master_bathroom_closet_light
+  - sensor.master_bedroom_temperature
+  - binary_sensor.master_bedroom_occupancy
   view: false
 
 guest_bedroom:
@@ -69,6 +78,8 @@ guest_bedroom:
   - light.guest_bedroom_overhead_light
   - switch.guest_bedroom_corner_light
   - switch.guest_bedroom_bedside_light
+  - sensor.guest_bedroom_temperature
+  - binary_sensor.guest_bedroom_occupancy
   view: false
 
 outside:
@@ -91,3 +102,4 @@ garage:
   entities:
   - switch.garage_overhead_light
   view: false
+  

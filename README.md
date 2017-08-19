@@ -6,14 +6,17 @@ My Example [Home Assistant](https://home-assistant.io/) Config
 
 ### Base Setup:
 
-* Home Assistant Version 0.50.1
+* Home Assistant Version 0.51.2
 * Virtualenv Install
 * Running on Pogoplug_E02
 * Arch Linux ARM (ARMv5te)
 * Sigma Designs UZB Z-Wave USB Adapter
 
-### Amazon Echo Dot:
+### Amazon Alexa
 
+* Amazon Echo Dot
+* Ecobee4 Thermostat with Alexa
+* Amazon Dash Wand with Alexa
 * Integrated via the emulated_hue component (i.e Alexa, Turn on Dining Room Ceiling Fan)
 * Also running [Pizzaface/Alexa-Chromecast-Skill2.0](https://github.com/Pizzaface/Alexa-Chromecast-Skill-2.0) (i.e. Alexa, Tell Chromecast to play [Youtube Video])
 
@@ -44,7 +47,7 @@ I have the Living Room setup wrapped together via the media_player.custom compon
 
 ### Climate Devices:
 * Ecobee4 Thermostat
-* 1x Ecobee Room Sensor
+* 4x Ecobee Room Sensors
 
 ### Z-Wave Devices:
 
