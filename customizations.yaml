@@ -84,3 +84,11 @@ sensor.living_room_smoke_detector_alarm_level:
   hidden: true
 sensor.living_room_smoke_detector_alarm_type:
   hidden: true
+sensor.guest_bedroom_smoke_detector_alarm_level:
+  hidden: true
+sensor.guest_bedroom_smoke_detector_alarm_type:
+  hidden: true
+sensor.office_smoke_detector_alarm_level:
+  hidden: true
+sensor.office_smoke_detector_alarm_type:
+  hidden: true

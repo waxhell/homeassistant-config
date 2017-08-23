@@ -115,6 +115,8 @@
       unit_of_measurement: '%'
       entity_id: zwave.garage_door
 
+# Living Room Smoke Detector (First Alert ZCOMBO)
+
     living_room_smoke_battery:
       friendly_name: 'Living Room Smoke Detector Battery Level'
       value_template: >-
@@ -126,7 +128,6 @@
       unit_of_measurement: '%'
       entity_id: zwave.living_room_smoke_detector
 
-    # First Alert ZCOMBO-G Smoke Detector
     living_room_smoke:
       friendly_name: 'Living Room Smoke Detector Status'
       value_template: >-
@@ -146,3 +147,69 @@
           {%- endif %}
         {%- endif %}
       entity_id: zwave.living_room_smoke_detector
+
+# Guest Bedroom Smoke Detector (First Alert ZCOMBO)
+    guest_bedroom_smoke:
+      friendly_name: 'Guest Bedroom Smoke Detector Status'
+      value_template: >-
+        {%- if is_state("sensor.guest_bedroom_smoke_detector_alarm_level", "0") %}
+          Idle
+        {%- else %}
+          {%- if is_state("sensor.guest_bedroom_smoke_detector_alarm_type", "1") %}
+            Fire
+          {%- elif is_state("sensor.guest_bedroom_smoke_detector_alarm_type", "2") %}
+            C02
+          {%- elif is_state("sensor.guest_bedroom_smoke_detector_alarm_type", "12") %}
+            Testing
+          {%- elif is_state("sensor.guest_bedroom_smoke_detector_alarm_type", "13") %}
+            Idle
+          {% else %}
+            Unknown
+          {%- endif %}
+        {%- endif %}
+      entity_id: zwave.guest_bedroom_smoke_detector
+
+    guest_bedroom_smoke_battery:
+      friendly_name: 'Guest Bedroom Smoke Detector Battery Level'
+      value_template: >-
+        {%- if states.zwave.guest_bedroom_smoke_detector -%}
+          {{ states.zwave.guest_bedroom_smoke_detector.attributes.battery_level }}
+        {%- else -%}
+          n/a
+        {%- endif -%}
+      unit_of_measurement: '%'
+      entity_id: zwave.guest_bedroom_smoke_detector
+
+# Office Smoke Detector (First Alert ZCOMBO)
+    office_smoke:
+      friendly_name: 'Office Smoke Detector Status'
+      value_template: >-
+        {%- if is_state("sensor.office_smoke_detector_alarm_level", "0") %}
+          Idle
+        {%- else %}
+          {%- if is_state("sensor.office_smoke_detector_alarm_type", "1") %}
+            Fire
+          {%- elif is_state("sensor.office_smoke_detector_alarm_type", "2") %}
+            C02
+          {%- elif is_state("sensor.office_smoke_detector_alarm_type", "12") %}
+            Testing
+          {%- elif is_state("sensor.office_smoke_detector_alarm_type", "13") %}
+            Idle
+          {% else %}
+            Unknown
+          {%- endif %}
+        {%- endif %}
+      entity_id: zwave.office_smoke_detector
+
+    office_smoke_battery:
+      friendly_name: 'Office Smoke Detector Battery Level'
+      value_template: >-
+        {%- if states.zwave.office_smoke_detector -%}
+          {{ states.zwave.office_smoke_detector.attributes.battery_level }}
+        {%- else -%}
+          n/a
+        {%- endif -%}
+      unit_of_measurement: '%'
+      entity_id: zwave.office_smoke_detector
+
+

@@ -30,7 +30,6 @@ thermostat:
   - sensor.pws_relative_humidity
   - binary_sensor.thermostat_occupancy
 
-
 living_room:
   name: Living Room
   entities:
@@ -39,6 +38,7 @@ living_room:
   - switch.living_room_ceiling_fan
   - sensor.living_room_temperature
   - binary_sensor.living_room_occupancy
+  - sensor.living_room_smoke
   view: false
 
 dining_room:
@@ -80,6 +80,7 @@ guest_bedroom:
   - switch.guest_bedroom_bedside_light
   - sensor.guest_bedroom_temperature
   - binary_sensor.guest_bedroom_occupancy
+  - sensor.guest_bedroom_smoke
   view: false
 
 outside:
@@ -103,3 +104,9 @@ garage:
   - switch.garage_overhead_light
   view: false
   
+office:
+  name: Office
+  entities:
+  - sensor.office_temperature
+  - binary_sensor.office_occupancy
+  - sensor.office_smoke
